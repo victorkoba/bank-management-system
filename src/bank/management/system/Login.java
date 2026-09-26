@@ -2,13 +2,16 @@ package bank.management.system;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class Login extends JFrame {
+public class Login extends JFrame implements ActionListener {
 
     // ATRIBUTOS DA CLASSE
     JLabel label1, label2, label3;
     JTextField textField2;
     JPasswordField passwordField3;
+    JButton button1, button2, button3;
 
     // CONSTRUTOR
     Login() {
@@ -56,7 +59,31 @@ public class Login extends JFrame {
         passwordField3.setFont(new Font("Arial", Font.BOLD, 14));
         add(passwordField3);
 
-         ImageIcon backgroundRaiz = new ImageIcon(ClassLoader.getSystemResource("icon/backbg.png"));
+        button1 = new JButton("SIGN IN");
+        button1.setFont(new Font("Arial", Font.BOLD, 14));
+        button1.setForeground(Color.WHITE);
+        button1.setBackground(Color.BLACK);
+        button1.setBounds(300, 300, 100, 30);
+        button1.addActionListener(this);
+        add(button1);
+
+        button2 = new JButton("CLEAR");
+        button2.setFont(new Font("Arial", Font.BOLD, 14));
+        button2.setForeground(Color.WHITE);
+        button2.setBackground(Color.BLACK);
+        button2.setBounds(430, 300, 100, 30);
+        button2.addActionListener(this);
+        add(button2);
+
+        button3 = new JButton("SIGN UP");
+        button3.setFont(new Font("Arial", Font.BOLD, 14));
+        button3.setForeground(Color.WHITE);
+        button3.setBackground(Color.BLACK);
+        button3.setBounds(300, 350, 230, 30);
+        button3.addActionListener(this);
+        add(button3);
+
+        ImageIcon backgroundRaiz = new ImageIcon(ClassLoader.getSystemResource("icon/backbg.png"));
         Image backgroundDimensionado = backgroundRaiz.getImage().getScaledInstance(850, 480, Image.SCALE_DEFAULT);
         ImageIcon backgroundImage = new ImageIcon(backgroundDimensionado);
         JLabel background = new JLabel(backgroundImage);
@@ -67,6 +94,23 @@ public class Login extends JFrame {
         setSize(850, 480);
         setLocation(450, 200);
         setVisible(true);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        try {
+            if (e.getSource() == button1) {
+
+            } else if (e.getSource() == button2) {
+                textField2.setText("");
+                passwordField3.setText("");
+            } else if (e.getSource() == button3) {
+
+            }
+
+        } catch (Exception E) {
+            E.printStackTrace();
+        }
     }
 
     public static void main(String[] args) {
